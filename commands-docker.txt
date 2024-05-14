@@ -1,0 +1,13 @@
+Utilizar o comando no campo "execute gradle task"
+gradle :bootBuildImage --imageName=NOME_DA_IMAGEM
+
+docker build -t caminho-do-bootBuildImage
+
+Roda a aplicação no perfil padrão com a conexão do banco de dados sendo para o lado do PADRÃO
+docker run -p 8080:8090 caminho-do-bootBuildImage
+
+Roda a aplicação no perfil dev com a conexão do banco de dados sendo para o lado do DEV
+docker run -p 8082:8091 -e "SPRING_PROFILES_ACTIVE=dev" teste/aula/teste:latest
+
+Roda a aplicação no perfil qa com a conexão do banco de dados sendo para o lado do QA
+docker run -p 8082:8091 -e "SPRING_PROFILES_ACTIVE=qa" teste/aula/teste:latest
